@@ -1,5 +1,6 @@
 import { argosScreenshot } from "@argos-ci/playwright"
-import { expect, test } from "@playwright/test"
+import { expect, test } from "@chromatic-com/playwright"
+import percySnapshot from "@percy/playwright"
 
 test("create project", async ({ page }) => {
   await page.goto("/")
@@ -15,4 +16,6 @@ test("create project", async ({ page }) => {
     /You’re about to create the project Awesome app using the Nuxt framework./
   )
   await argosScreenshot(page, "Confirm modal")
+  // @ts-ignore
+  await percySnapshot(page, "Example Site")
 })
