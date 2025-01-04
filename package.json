@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "npx playwright test"
+    "test": "npx playwright test",
+    "chromatic": "chromatic --playwright --exit-zero-on-changes"
   },
   "dependencies": {
     "@chromatic-com/playwright": "^0.10.0",

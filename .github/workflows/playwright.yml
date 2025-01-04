@@ -33,12 +33,8 @@ jobs:
       - name: Install Chromium
         run: pnpm exec playwright install chromium --with-deps
 
-      - name: Run Playwright tests
-        run: pnpm exec playwright test
-
-      - uses: actions/upload-artifact@v3
-        if: always()
+      - name: Run Chromatic
+        uses: chromaui/action@latest
         with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 30
+          # ⚠️ Make sure to configure a `CHROMATIC_PROJECT_TOKEN` repository secret
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
