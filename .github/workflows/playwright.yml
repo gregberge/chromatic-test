@@ -35,7 +35,4 @@ jobs:
         run: pnpm exec playwright test
 
       - name: Run Chromatic
-        uses: chromaui/action@latest
-        with:
-          # ⚠️ Make sure to configure a `CHROMATIC_PROJECT_TOKEN` repository secret
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        run: npx chromatic --playwright --project-token=chpt_9a20d5c740c7309
